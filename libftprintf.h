@@ -6,10 +6,9 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 19:25:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/11/29 20:00:56 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/11/29 20:19:11 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFTPRINTF_H
 #define LIBFTPRINTF_H
@@ -30,6 +29,5 @@ char    *conv_char(char *str, void *content);
 char    *conv_min_hex(char *str, void *content);
 char    *conv_maj_hex(char *str, void *content);
 char    *conv_hexa_from_void(char *str, void *content);
-
 
 #endif

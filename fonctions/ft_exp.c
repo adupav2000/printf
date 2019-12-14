@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_string.c                                      :+:      :+:    :+:   */
+/*   ft_exp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/29 20:07:28 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/14 16:11:21 by adu-pavi         ###   ########.fr       */
+/*   Created: 2019/12/07 17:39:54 by adu-pavi          #+#    #+#             */
+/*   Updated: 2019/12/14 15:28:50 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
-
-char *conv_string(char *str, void *content)
+long int ft_exp(int to_exp, int exp)
 {
-    char *ret_val;
+	int ret_val;
+	long int stop;
 
-    ret_val = 0;
-    if (!(ret_val = malloc(ft_strlen((char *)content) * sizeof(char) + 1)))
-        return 0;
-    ft_strncpy(ret_val, content, get_lim(str));
-    return (ret_val);
+	ret_val = to_exp;
+	stop = 1;
+	while (++stop <= exp)
+		ret_val *= to_exp;
+	return (ret_val);
 }

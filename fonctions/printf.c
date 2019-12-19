@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:00 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/11/29 20:12:03 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/19 16:02:38 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,17 @@
 7. hexa from void*
 */
 
-
 int ft_printf(const char *str, ...)
 {
-    va_type va;
-    va_type end;
-    char *tmp;
-    void *tmp_check;
-    unsigned int count;
-    unsigned int tmp_count;
-    unsigned int str_count;
+    va_type         va;
+    va_type         end;
+    char            *tmp;
+    void            *tmp_check;
+    unsigned int    count;
+    unsigned int    tmp_count;
+    unsigned int    str_count;
+    
     define_conv_ptr();
-
     tmp_count = 0;
     str_count = 0;
     va_start(va, end);
@@ -42,9 +41,9 @@ int ft_printf(const char *str, ...)
     {
         if(str[str_count] == '%')
         {
-
             ft_strlcat(tmp, 
-                (*(ftab[ret_type(str)])(str[str_count], va_arg(va, void))));
+                (*(ftab[ret_type(str[str_count])]
+                (str[str_count], va_arg(va, void)))));
             str_count++;
             while (!(ft_is_used_letter(str[str_count])))
                 str_count++;

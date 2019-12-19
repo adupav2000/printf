@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:07:57 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/14 16:58:20 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/19 16:24:49 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char *conv_char(char *str, void *content)
     ret_val = NULL;
     if (!(ret_val = malloc(2)))
         return NULL;
+    tmp = NULL;
     tmp[0] = (char)content;
     tmp[1] = '\0';
     ft_strcpy(ret_val, tmp);

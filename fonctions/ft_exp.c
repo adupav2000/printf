@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libftprintf.h"
+
 long int ft_exp(int to_exp, int exp)
 {
 	int ret_val;

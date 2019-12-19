@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/29 23:42:23 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/11/29 23:43:58 by adu-pavi         ###   ########.fr       */
+/*   Created: 2019/11/04 11:10:09 by adu-pavi          #+#    #+#             */
+/*   Updated: 2019/11/07 15:00:07 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-int ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
-	return ((c <= '9' && c >= '0'));
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

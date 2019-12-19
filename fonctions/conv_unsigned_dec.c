@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:05:48 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/14 17:13:29 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/19 16:25:37 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char *conv_unsigned_dec(char *str, void *content)
 	diviser = 1000000000; 
 	tmp_count = 0;
 	tmp = 0;
-	if (!(tmp = (char *)malloc(sizeof(int) * get_int_len((int)content) + 1)))
+	if (!(tmp = (char *)malloc(sizeof(int) * ft_get_int_len((int)content) + 1)))
 		return (0);
 	while (!(safe_stock / diviser) && diviser != 1)
 		diviser = diviser / 10;

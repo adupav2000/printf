@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:00 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/19 16:02:38 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/26 12:58:35 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,26 @@
 
 int ft_printf(const char *str, ...)
 {
-    va_type         va;
-    va_type         end;
-    char            *tmp;
-    void            *tmp_check;
-    unsigned int    count;
+    va_list         va;
+    char            tmp[20000];
     unsigned int    tmp_count;
     unsigned int    str_count;
     
     define_conv_ptr();
     tmp_count = 0;
     str_count = 0;
-    va_start(va, end);
+    // tmp[0] = '\0';
+    va_start(va, str);
     while (str[str_count])
     {
         if(str[str_count] == '%')
         {
-            ft_strlcat(tmp, 
-                (*(ftab[ret_type(str[str_count])]
-                (str[str_count], va_arg(va, void)))));
+            // ft_strcat(tmp, 
+            //     ((ftab[ret_type((char *)&str[str_count])]
+            //     ((char *)&str[str_count], va_arg(va, void *)))));
             str_count++;
+            while (!(ft_is_used_letter(str[str_count])))
+                str_count++;
             while (!(ft_is_used_letter(str[str_count])))
                 str_count++;
             str_count++;
@@ -52,8 +52,9 @@ int ft_printf(const char *str, ...)
         }
         if (str[str_count] != '\0' && str[str_count] != '%')
             tmp[tmp_count++] = str[str_count];
+        // str_count++;
     }
     va_end(va);
-    ft_putstr();
+    // ft_putstr_fd(str, 1);
     return (0);
 }

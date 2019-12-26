@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:11:36 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/11/29 20:11:45 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/25 14:57:16 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int ret_type(char *str)
 {
-    int ret_val;
     unsigned int i;
 
     i = 1;

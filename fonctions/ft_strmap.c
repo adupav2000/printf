@@ -6,11 +6,12 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:12:11 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/11/28 19:17:24 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:56:30 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"#include "../libftprintf.h"
+#include "../libftprintf.h"
+
 char	*ft_strmap(char const *s, char (*f)(char))
 {
 	unsigned int	i;

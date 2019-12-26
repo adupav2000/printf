@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:05:48 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/19 16:25:37 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/25 14:24:43 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char *conv_unsigned_dec(char *str, void *content)
 	char		        *tmp;
 	int			        tmp_count;
 
+	(void)str;
 	safe_stock = (long long int)content;
     if (safe_stock < 0)
         safe_stock = 4294967295 + safe_stock + 1;

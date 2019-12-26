@@ -6,43 +6,44 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 19:25:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/19 16:24:03 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/26 12:58:28 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 #define LIBFTPRINTF_H
-#include <stdarg.h>
+# include <stdarg.h>
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 
 typedef char *(*fptr)(char *, void *);
 fptr ftab[8];
-
 enum {
 	true,
 	false
 };
 
-int     ft_printf(const char *str, ...);
+int     		ft_printf(const char *str, ...);
 
-int     ret_type(char *str);
-long int ft_exp(int to_exp, int exp);
-int		ft_get_lim(char *str);
+char			*ft_rev_str(char *str_to_rev);
+int 			ft_is_used_letter(char c);
+void 			define_conv_ptr();
+int     		ret_type(char *str);
+long int 		ft_exp(int to_exp, int exp);
+int				ft_get_lim(char *str);
+int 			ft_get_int_len(int num);
+char			*conv_from_base(unsigned int num, char *base);
+void			ft_increment_til_text(char *str, unsigned int *i);
 
-char    *conv_nothing(char *str, void *content);
-char    *conv_dec(char *str, void *content);
-char    *conv_unsigned_dec(char *str, void *content);
-char    *conv_string(char *str, void *content);
-char    *conv_char(char *str, void *content);
-char    *conv_min_hex(char *str, void *content);
-char    *conv_maj_hex(char *str, void *content);
-char    *conv_hexa_from_void(char *str, void *content);
-
-
-
-
+char    		*conv_nothing(char *str, void *content);
+char    		*conv_dec(char *str, void *content);
+char    		*conv_unsigned_dec(char *str, void *content);
+char    		*conv_string(char *str, void *content);
+char    		*conv_char(char *str, void *content);
+char    		*conv_min_hex(char *str, void *content);
+char    		*conv_maj_hex(char *str, void *content);
+char    		*conv_hexa_from_void(char *str, void *content);
 
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
@@ -113,9 +114,10 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putendl_fd(char *s, int fd);
+void    		ft_putstr(char const *s);
+void			ft_putchar(char c);
+void			ft_putendl(char const *s);
 unsigned int	ft_str_count_opt(char *str, char c);
 int				ft_occures_in_set(char c, char const *set);
-
-
 
 #endif

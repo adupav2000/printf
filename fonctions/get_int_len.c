@@ -6,13 +6,13 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 16:51:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/14 15:27:30 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/25 14:23:24 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-int get_int_len(int num)
+int ft_get_int_len(int num)
 {
 	int ret_val;
 

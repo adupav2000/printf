@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:04:43 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/14 15:57:08 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/25 14:26:16 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ char *conv_dec(char *str, void *content)
 	char		*tmp;
 	int			tmp_count;
     
+	(void)str;
 	safe_stock = (long int)content;
 	diviser = 1000000000;
 	tmp_count = 0;
 	tmp = 0;
-	if (!(tmp = (char *)malloc(sizeof(int) * get_int_len((int)content) + 1)))
+	if (!(tmp = 
+	(char *)malloc(sizeof(int) * ft_get_int_len((int)content) + 1)))
 		return (0);
 	if (safe_stock < 0)
 	{

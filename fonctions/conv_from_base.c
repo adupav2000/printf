@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_str.c                                       :+:      :+:    :+:   */
+/*   conv_from_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/17 10:36:31 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/25 14:58:16 by adu-pavi         ###   ########.fr       */
+/*   Created: 2019/12/20 15:02:47 by adu-pavi          #+#    #+#             */
+/*   Updated: 2019/12/25 14:56:48 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-char *ft_rev_str(char *str_to_rev)
+char *conv_from_base(unsigned int num, char *base)
 {
-    int len;
-    int i;
-    char tmp;
-    
-    i = 0;
-    len = ft_strlen(str_to_rev);
-    while (i != (len - i) && i != (len - i + 1))
-    {
-        tmp = str_to_rev[len - i - 1];
-        str_to_rev[len - i - 1] = str_to_rev[i];
-        str_to_rev[i] = tmp;
-        i++;
-    }
-    return (str_to_rev);
+	int len_base;
+	int i;
+	char tmp[2000];
+	char *ret_val;
+
+	ret_val = NULL;
+	i = 0;
+	len_base = ft_strlen(base);
+	while (num > 0)
+	{
+		tmp[i] = base[num%len_base];
+		num = num/len_base;
+		i++;
+	}
+	ret_val = NULL;
+	if (!(ret_val = ft_strnew(ft_strlen(tmp))))
+		return (0);
+	ft_strlcpy(ret_val, tmp, ft_strlen(tmp) + 1);
+	ft_rev_str(ret_val);
+	return (ret_val);
 }

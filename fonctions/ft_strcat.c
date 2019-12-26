@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:53:22 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/07 13:13:27 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/21 13:11:33 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strcat(char *s1, const char *s2)
 
 	i = 0;
 	i2 = 0;
-	while (*(s1 + i++))
-		i;
+	while (*(s1 + i))
+		i++;
 	while (*(s2 + i2))
 		*(s1 + i++) = *(s2 + i2++);
 	return (s1);

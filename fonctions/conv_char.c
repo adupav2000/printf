@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:07:57 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/19 16:24:49 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/25 14:21:44 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char *conv_char(char *str, void *content)
     tmp = NULL;
     tmp[0] = (char)content;
     tmp[1] = '\0';
-    ft_strcpy(ret_val, tmp);
+    ft_strlcpy(ret_val, tmp, ft_strlen(tmp));
     return (ret_val);
 }

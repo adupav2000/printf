@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_lim.c                                          :+:      :+:    :+:   */
+/*   ft_increment_til_text.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/29 20:51:28 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/14 15:49:31 by adu-pavi         ###   ########.fr       */
+/*   Created: 2019/12/26 12:50:27 by adu-pavi          #+#    #+#             */
+/*   Updated: 2019/12/26 12:58:04 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-int get_lim(char *str)
+void ft_increment_til_text(char *str, unsigned int *i)
 {
-	int ret_val;
-	unsigned int i;
-	
-	ret_val = 0;
-	i = 1;
-	if (str[i] == '.' || str[i] == '-' || ft_isdigit(str[i]))
-	{
-		if (str[i] == '.' || str[i] == '-')
-			i++;
-		while (ft_isdigit(str[i]))
-		{
-			ret_val = ret_val * 10 + (str[i] - 48);
-			i++;
-		}
-	}
-	else
-		return (2000);
-	return (ret_val);
+	if (str[*i] == '.')
+		*i++;
+	while (ft_isdigit(str[*i]))
+		*i++;
+	if (ft_is_used_letter(str[*i]))
+		*i++;
 }

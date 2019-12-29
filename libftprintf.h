@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 19:25:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/26 12:58:28 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/29 11:39:43 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 
 typedef char *(*fptr)(char *, void *);
 fptr ftab[8];
+
+typedef char *(*fctlen)(char *, void *);
+fctlen ft_len[8];
+
 enum {
 	true,
 	false
@@ -30,11 +34,13 @@ char			*ft_rev_str(char *str_to_rev);
 int 			ft_is_used_letter(char c);
 void 			define_conv_ptr();
 int     		ret_type(char *str);
-long int 		ft_exp(int to_exp, int exp);
+unsigned	int	ft_exp(int to_exp, int exp);
 int				ft_get_lim(char *str);
 int 			ft_get_int_len(int num);
 char			*conv_from_base(unsigned int num, char *base);
-void			ft_increment_til_text(char *str, unsigned int *i);
+int 			ft_increment_til_text(char *str, unsigned int i);
+char			*ft_sign_before_dec(char *str, void *content);
+int             ft_get_len_conv_dec(char *str, int content);
 
 char    		*conv_nothing(char *str, void *content);
 char    		*conv_dec(char *str, void *content);

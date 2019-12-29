@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:02:47 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/25 14:56:48 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/28 14:14:41 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char *conv_from_base(unsigned int num, char *base)
 {
 	int len_base;
 	int i;
-	char tmp[2000];
+	char tmp[500000];
 	char *ret_val;
 
 	ret_val = NULL;

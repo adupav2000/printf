@@ -1,4 +1,4 @@
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 SRC = fonctions/conv_nothing.c fonctions/ft_exp.c fonctions/ft_strncpy.c fonctions/conv_string.c\
 		fonctions/ft_get_lim.c fonctions/ft_get_int_len.c fonctions/conv_char.c fonctions/conv_unsigned_dec.c\
@@ -24,7 +24,9 @@ SRC = fonctions/conv_nothing.c fonctions/ft_exp.c fonctions/ft_strncpy.c fonctio
 		fonctions/ft_strncmp.c fonctions/ft_strnstr.c fonctions/ft_strrchr.c\
 		fonctions/ft_strtrim.c fonctions/ft_substr.c fonctions/ft_tolower.c\
 		fonctions/ft_toupper.c fonctions/ft_isspace.c\
-		fonctions/ft_strlenstropt.c fonctions/ft_strnew.c
+		fonctions/ft_strlenstropt.c fonctions/ft_strnew.c fonctions/conv_from_base.c\
+		fonctions/ft_increment_til_text.c fonctions/ft_strcat.c\
+		fonctions/ft_sign_before_dec.c
 
 OBJ = conv_nothing.o ft_exp.o ft_strncpy.o conv_string.o\
 		ft_get_lim.o ft_get_int_len.o conv_char.o conv_unsigned_dec.o\
@@ -50,7 +52,8 @@ OBJ = conv_nothing.o ft_exp.o ft_strncpy.o conv_string.o\
 		ft_strncmp.o ft_strnstr.o ft_strrchr.o\
 		ft_strtrim.o ft_substr.o ft_tolower.o\
 		ft_toupper.o ft_isspace.o\
-		ft_strlenstropt.o ft_strnew.o
+		ft_strlenstropt.o ft_strnew.o conv_from_base.o\
+		ft_increment_til_text.o ft_strcat.o ft_sign_before_dec.o
 	
 # OBJ = $(subst .c,.o,$(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/26 12:24:56 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/29 11:28:01 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@
   #include "ft_exp.c"
   #include "ft_isupper.c"
   #include "ft_putchar.c"
-  #include "ft_strchr.c"
   #include "ft_strlcat.c"
+  #include "ft_strchr.c"
  #include "ft_strnew.c"         
 
   #include "conv_nothing.c"
@@ -77,16 +77,16 @@
   #include "ft_itoa.c"
   #include "ft_putchar_fd.c"
   #include "ft_strclr.c"
- #include "ft_strlcpy.c"     
+  #include "ft_strlcpy.c"     
   #include "ft_strnlen.c"
   #include "ret_type.c"
  
   #include "conv_string.c"
- #include "ft_get_lim.c"                
+  #include "ft_get_lim.c"                
   #include "ft_memalloc.c"
   #include "ft_putendl.c"
   #include "ft_strcmp.c"
- #include "ft_strlen.c"      
+  #include "ft_strlen.c"      
   #include "ft_strnstr.c"
  
   #include "conv_unsigned_dec.c"
@@ -95,13 +95,15 @@
   #include "ft_putendl_fd.c"
   #include "ft_strlenopt.c"
   #include "ft_strrchr.c"
-
+  #include "ft_increment_til_text.c"
   #include "printf.c"
+  #include "ft_sign_before_dec.c"
+  #include "ft_get_len_conv_dec.c"
+
 int main()
 {
-    void *x = 234567890;
-    char * tmp;
-    tmp[1] = 'A';
-    ft_printf("%x\n", 234567890);
-    printf("%s\n", conv_min_hex("char *str", x));
+    // printf("   print >%++   1 .s<\n", "+1");
+    // ft_printf("ft print >%20.s<\n", "+1");
+    printf("%d\n", ft_get_len_conv_dec("%20.d", 10));
+    // printf("m%cm\n", ft_sign_before_dec(& d"));
 }

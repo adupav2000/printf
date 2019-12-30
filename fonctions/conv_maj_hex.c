@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:09:11 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/25 14:57:44 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/30 11:27:08 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char *conv_maj_hex(char *str, void *content)
     tmp = conv_from_base((unsigned int)content, "0123456789ABCDEF");
     if (!(ret_val = malloc(ft_strlen(tmp) * sizeof(char) + 3)))
         return NULL;
-    ft_strncpy(ret_val, tmp, ft_get_lim(str));
+    ft_strncpy(ret_val, tmp, ft_strlen(str));
     return (ret_val);
 }

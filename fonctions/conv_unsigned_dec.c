@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:05:48 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/28 14:56:00 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/30 12:46:03 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ char *conv_unsigned_dec(char *str, void *content)
 		diviser = diviser / 10;
 	}
 	tmp[tmp_count] = '\0';
+	if ((int)ft_strlen(tmp) < ft_get_lim_string_min(str))
+		return (ft_shift_char_in_string(tmp, ft_get_lim_string_min(str)));
     return (tmp);
 }

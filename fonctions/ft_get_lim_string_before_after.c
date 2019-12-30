@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_lim.c                                       :+:      :+:    :+:   */
+/*   ft_get_lim_string_before_after.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/29 20:51:28 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/30 11:32:39 by adu-pavi         ###   ########.fr       */
+/*   Created: 2019/12/29 16:40:27 by adu-pavi          #+#    #+#             */
+/*   Updated: 2019/12/29 16:43:30 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
-
-int	ft_get_lim(char *str)
+int				ft_get_lim_string_before_after(char *str)
 {
-	int				ret_val;
-	unsigned int	i;
+	int i;
 
-	ret_val = 0;
-	i = 1;
-	while (str[i] == ' ' || str[i] == '+' || str[i] == '-')
-		i++;
-	if (str[i] == '.' || str[i] == '-' || ft_isdigit(str[i]))
+	i = 0;
+	while (!(ft_isprintf_flag(str[i])))
 	{
-		if (str[i] == '.' || str[i] == '-')
-			i++;
-		while (ft_isdigit(str[i]))
-		{
-			ret_val = ret_val * 10 + (str[i] - 48);
-			i++;
-		}
+		if (str[i] == '-')
+			return (1);
+		i++;
 	}
-	else
-		return (2000);
-	return (ret_val);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 19:25:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/29 11:39:43 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/30 11:34:49 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef char *(*fptr)(char *, void *);
 fptr ftab[8];
 
-typedef char *(*fctlen)(char *, void *);
+typedef int (*fctlen)(char * , void *);
 fctlen ft_len[8];
 
 enum {
@@ -35,12 +35,19 @@ int 			ft_is_used_letter(char c);
 void 			define_conv_ptr();
 int     		ret_type(char *str);
 unsigned	int	ft_exp(int to_exp, int exp);
-int				ft_get_lim(char *str);
+int				ft_isprintf_flag(char to_check);
+
+int				ft_get_lim_string_max(char *str);
+int				ft_get_lim_string_min(char *str);
+int				ft_get_lim_string_before_after(char *str);
+int				ft_isprintf_flag(char to_check);
+char 			*ft_shift_char_in_string(char *string, unsigned int shift_lim);
+
 int 			ft_get_int_len(int num);
 char			*conv_from_base(unsigned int num, char *base);
 int 			ft_increment_til_text(char *str, unsigned int i);
 char			*ft_sign_before_dec(char *str, void *content);
-int             ft_get_len_conv_dec(char *str, int content);
+int             ft_get_len_conv_dec(char *str, void *content);
 
 char    		*conv_nothing(char *str, void *content);
 char    		*conv_dec(char *str, void *content);

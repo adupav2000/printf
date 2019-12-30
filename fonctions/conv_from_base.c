@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:02:47 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/28 14:14:41 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/30 11:25:54 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char *conv_from_base(unsigned int num, char *base)
 		num = num/len_base;
 		i++;
 	}
+	tmp[i] = 0;
 	ret_val = NULL;
 	if (!(ret_val = ft_strnew(ft_strlen(tmp))))
 		return (0);

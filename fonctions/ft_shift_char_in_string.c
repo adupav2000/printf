@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_lim.c                                       :+:      :+:    :+:   */
+/*   ft_shift_char_in_string.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/29 20:51:28 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/30 11:32:39 by adu-pavi         ###   ########.fr       */
+/*   Created: 2019/12/30 10:58:17 by adu-pavi          #+#    #+#             */
+/*   Updated: 2019/12/30 12:48:00 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-int	ft_get_lim(char *str)
+char *ft_shift_char_in_string(char *string, unsigned int shift_lim)
 {
-	int				ret_val;
-	unsigned int	i;
+	char 			*ret_val;
+	unsigned int 	i;
 
+	i = 0;
 	ret_val = 0;
-	i = 1;
-	while (str[i] == ' ' || str[i] == '+' || str[i] == '-')
-		i++;
-	if (str[i] == '.' || str[i] == '-' || ft_isdigit(str[i]))
-	{
-		if (str[i] == '.' || str[i] == '-')
-			i++;
-		while (ft_isdigit(str[i]))
-		{
-			ret_val = ret_val * 10 + (str[i] - 48);
-			i++;
-		}
-	}
-	else
-		return (2000);
+	if (!(ret_val = ft_strnew(shift_lim)))
+		return (0);
+	while (i < (shift_lim - ft_strlen(string)))
+		ret_val[i++] = ' '; 
+	ft_strlcpy(&ret_val[i], string, ft_strlen(string) + 1);
 	return (ret_val);
 }

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/29 11:28:01 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/30 12:41:15 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
   #include "ft_putchar.c"
   #include "ft_strlcat.c"
   #include "ft_strchr.c"
- #include "ft_strnew.c"         
+ #include "ft_strnew.c"
 
   #include "conv_nothing.c"
   #include "ft_get_int_char_length.c"
@@ -99,11 +99,13 @@
   #include "printf.c"
   #include "ft_sign_before_dec.c"
   #include "ft_get_len_conv_dec.c"
+  #include "ft_get_lim_string_min.c"
+  #include "ft_get_lim_string_max.c"
+  #include "ft_shift_char_in_string.c"
+  #include "ft_isprintf_flag.c"
 
 int main()
 {
-    // printf("   print >%++   1 .s<\n", "+1");
-    // ft_printf("ft print >%20.s<\n", "+1");
-    printf("%d\n", ft_get_len_conv_dec("%20.d", 10));
-    // printf("m%cm\n", ft_sign_before_dec(& d"));
+    ft_printf(">%d<\n", 123112323);
+    printf(">%d<\n", 123112323);
 }

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:15:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/30 12:48:52 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2019/12/30 12:52:45 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ char	*ft_sign_before_dec(char *str, void *content)
 		i++;
 				
 	}
-		
 	return (ret_val);
 }

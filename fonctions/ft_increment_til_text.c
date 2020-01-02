@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/26 12:50:27 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/30 11:50:18 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/02 08:17:42 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,7 @@
 
 int	ft_increment_til_text(char *str, unsigned int i)
 {
-	if (str[i] == '%')
+	while (!ft_isprintf_flag(str[i - 1]) && str[i - 1] != '\0')
 		i++;
-	if (str[i] == '.')
-		i++;
-	while (*(str + i) == ' ' ||
-		*(str + i) == '+' ||
-		*(str + i) == '-' ||
-		*(str + i) == '\'')
-		i++;
-	while (ft_isdigit(str[i]))
-		i++;
-	if (str[i] == '.')
-		i++;
-	while (!(ft_is_used_letter(str[i])))
-		i++;
-	i++;
 	return (i);
 }

@@ -1,0 +1,1 @@
+int ft_printfflag_has_min(char *str)

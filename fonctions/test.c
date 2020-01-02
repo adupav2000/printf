@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/30 12:41:15 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/02 09:22:13 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
   #include "ft_strequ.c"
   #include "ft_strncat.c"
   #include "ft_tolower.c"
- #include "conv_from_base.c"        
+ #include "conv_from_base.c"
   #include "ft_atoi.c"
   #include "ft_islower.c"
   #include "ft_memmove.c"
@@ -70,7 +70,7 @@
   #include "ft_putchar.c"
   #include "ft_strlcat.c"
   #include "ft_strchr.c"
- #include "ft_strnew.c"
+  #include "ft_strnew.c"
 
   #include "conv_nothing.c"
   #include "ft_get_int_char_length.c"
@@ -80,13 +80,13 @@
   #include "ft_strlcpy.c"     
   #include "ft_strnlen.c"
   #include "ret_type.c"
- 
+
   #include "conv_string.c"
-  #include "ft_get_lim.c"                
+  #include "ft_get_lim.c"
   #include "ft_memalloc.c"
   #include "ft_putendl.c"
   #include "ft_strcmp.c"
-  #include "ft_strlen.c"      
+  #include "ft_strlen.c"
   #include "ft_strnstr.c"
  
   #include "conv_unsigned_dec.c"
@@ -103,9 +103,18 @@
   #include "ft_get_lim_string_max.c"
   #include "ft_shift_char_in_string.c"
   #include "ft_isprintf_flag.c"
-
+  #include "ft_printfflag_has_min.c"
+  #include "ft_printfflag_has_max.c"
 int main()
 {
-    ft_printf(">%d<\n", 123112323);
-    printf(">%d<\n", 123112323);
+    // ft_printf(">%0.-10s<\n", "123112323");
+    printf(">%2.-1s<\n", "Hello");
+    ft_printf(">%2.-1s<\n", "Hello");
 }
+// Le deux est un minimum = affichage de   0 avant.
+// Il y a un espace = afficher un espace
+// Il a un plus afficher un +
+// il una espace et plus = afficher +
+
+// pour les string
+// il y a un - devant le min, les caractère sont affiché après

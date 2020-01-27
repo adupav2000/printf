@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:00 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/31 11:49:43 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/03 08:36:09 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 4. char
 5. hexa en minuscule
 6. hexa en majuscule
-7. hexa from void*
+7. hexa from void
 */
 
 int ft_printf(const char *str, ...)

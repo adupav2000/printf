@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:11:36 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/31 11:44:37 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/27 07:18:39 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int ret_type(char *str)
     unsigned int i;
 
     i = 1;
-    while (!ft_isprintf_flag(str[i]))
+    while (!ft_isprintf_flag(str[i]) && str[i] != '\0')
         i++;
     if (str[i] == 'd' || str[i] == 'i')
         return (1);

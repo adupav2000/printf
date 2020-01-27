@@ -6,13 +6,13 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 16:00:34 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/31 10:59:32 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/27 06:32:44 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-int ft_printfflag_has_max(char *str)
+int	ft_printfflag_has_max(char *str)
 {
 	unsigned int i;
 

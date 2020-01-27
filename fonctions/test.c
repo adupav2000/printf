@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/02 11:37:33 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/27 08:12:01 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@
   #include "ft_printfflag_has_max.c"
 int main()
 {
-    // ft_printf(">%0.-10s<\n", "123112323");
-    printf(">%4.-1p<\n", -1);
-    ft_printf(">%4.-1p<\n", -1);
+
+ft_printf("%3d\n",0);
+
 }
 // Le deux est un minimum = affichage de   0 avant.
 // Il y a un espace = afficher un espace
@@ -118,3 +118,6 @@ int main()
 
 // pour les string
 // il y a un - devant le min, les caractère sont affiché après
+
+
+// Si jamais il y a 

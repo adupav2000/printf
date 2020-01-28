@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 08:55:22 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/27 09:49:09 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:10:03 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_get_signs_before_dec(char *str)
 	int i;
 
 	i = 0;
-	while (!ft_isprintf_flag(str[i]))
+	while (!ft_isprintf_flag(str[i]) && str[i])
 		i++;
-	while (str[i] != '%' || str[i] != '-' ||
-		str[i] != '+' || str[i] != ' ' ||
-		str[i] != '.')
+	while (str[i] != '%' && str[i] != '-' &&
+		str[i] != '+' && str[i] != ' ' &&
+		str[i] != '.' && i > 0)
 		i--;
 	if (str[i] == '%' && str[i + 1] == '0')
 		return ("0");
@@ -31,6 +31,8 @@ char	*ft_get_signs_before_dec(char *str)
 		return ("+");
 	if (str[i - 1] == ' ' && str[i] == '-')
 		return (" -");
+	if (str[i] == '-')
+		return ("-");
 	if (str[i] == ' ' && str[i + 1] == '0')
 		return (" 0");
 	if (str[i] == '.')

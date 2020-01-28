@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 19:25:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/27 08:57:45 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/28 10:57:28 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int 			ft_is_used_letter(char c);
 void 			define_conv_ptr();
 int     		ret_type(char *str);
 unsigned	int	ft_exp(int to_exp, int exp);
+int				ft_abs(int num);
 int				ft_isprintf_flag(char to_check);
 
 int				ft_get_lim_string_max(char *str);

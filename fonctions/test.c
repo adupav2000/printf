@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/27 08:12:01 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:09:35 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,13 @@
   #include "ft_isprintf_flag.c"
   #include "ft_printfflag_has_min.c"
   #include "ft_printfflag_has_max.c"
+  #include "ft_get_signs_before_dec.c"
+  #include "ft_abs.c"
+
 int main()
 {
-
-ft_printf("%3d\n",0);
-
+  printf(">%s<\n", ft_sign_before_dec("%-10d", (void *)-3));
+  printf(">%-10d<", (void *)-3);
 }
 // Le deux est un minimum = affichage de   0 avant.
 // Il y a un espace = afficher un espace

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:15:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/27 09:51:42 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/01/27 11:02:59 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_sign_before_dec(char *str, void *content)
 	unsigned int	i;
 	unsigned int	i_ret_val;
 	int				limit;
+	int				difference;
 
 	ret_val = 0;
 	i_ret_val = 0;
@@ -29,11 +30,21 @@ char	*ft_sign_before_dec(char *str, void *content)
 		i++;
 	while (ft_isdigit(str[i]))
 		i--;
+	difference = ft_get_int_len(content) - ft_atoi(&str[i]);
 	if ((int)content < 0)
 	{
-		if (str[i] == '0')
+		if ((!ft_strncmp("0", ft_get_signs_before_dec(str), 10) ||
+			!ft_strncmp(" 0", ft_get_signs_before_dec(str), 10) ||
+			!ft_strncmp("+0", ft_get_signs_before_dec(str), 10)) &&
+			ft_get_int_len(content) < ft_atoi(&str[i]))
+			{
+				ret_val[i_ret_val++] = '-';
+				while (i_ret_val <= difference)
+					ret_val[i_ret_val++] = '0';
+			}
 	}
 }
+
 /*
 
 Il y a un 0 avant,

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/28 12:09:35 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/08 11:16:18 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
   #include <stdio.h>
 
   #include "../libftprintf.h"
-
-
+  
   #include "define_conv_ptr.c"
   #include "ft_isalpha.c"
   #include "ft_memcmp.c"
@@ -63,7 +62,6 @@
   #include "ft_strjoin.c"
   #include "ft_strnequ.c"
 
-
   #include "conv_min_hex.c"
   #include "ft_exp.c"
   #include "ft_isupper.c"
@@ -107,19 +105,52 @@
   #include "ft_printfflag_has_max.c"
   #include "ft_get_signs_before_dec.c"
   #include "ft_abs.c"
+  #include "ft_sign_after_dec.c"
 
 int main()
 {
-  printf(">%s<\n", ft_sign_before_dec("%-10d", (void *)-3));
-  printf(">%-10d<", (void *)-3);
+    int		a = -4;
+	int		b = 0;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	int		f = 42;
+	int		g = 25;
+	int		h = 4200;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+	char	*n = "abcdefghijklmnop";
+	char	*o = "-a";
+	char	*p = "-12";
+	char	*q = "0";
+	char	*r = "%%";
+	char	*s = "-2147483648";
+	char	*t = "0x12345678";
+	char	*u = "-0";
+
+	// printf(" --- Return : %d\n", printf("Simple input test"));
+  	// ft_printf(" --- Return : %d\n", ft_printf("Simple input test"));
+  ft_printf("ft_printf : >%+12.5d<\n", j);
+  printf("___printf : >%+12.5d<\n", j);
+  // ft_printf("ft_printf : >%d<\n", k);
+  // printf("___printf : >%d<\n", k);
+  // ft_printf("ft_printf : >%d<\n", l);
+  // printf("___printf : >%d<\n", l);
+  // ft_printf("ft_printf : >%d<\n", m);
+  // printf("___printf : >%d<\n", m);
+  // ft_printf("ft_printf : >%s<\n", n);
+  // printf("___printf : >%s<\n", n);
+  // ft_printf("ft_printf : >%c<\n", c);
+  // printf("___printf : >%c<\n", c);
+  // ft_printf("ft_printf : >%d<\n", c);
+  // printf("___printf : >%d<\n", c);
+  // ft_printf("ft_printf : >%u<\n", j);
+  // printf("___printf : >%u<\n", j);
+  // ft_printf("ft_printf : >%x<\n", j);
+  // printf("___printf : >%x<\n", j);
+  // ft_printf("ft_printf : >%X\n<",j);
+  // printf("___printf : >%X\n<",j);
 }
-// Le deux est un minimum = affichage de   0 avant.
-// Il y a un espace = afficher un espace
-// Il a un plus afficher un +
-// il una espace et plus = afficher +
-
-// pour les string
-// il y a un - devant le min, les caractère sont affiché après
-
-
-// Si jamais il y a 

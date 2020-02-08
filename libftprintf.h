@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 19:25:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/28 10:57:28 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/05 18:19:23 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int             ft_get_len_conv_dec(char *str, void *content);
 int				ft_printfflag_has_max(char *str);
 int				ft_printfflag_has_min(char *str);
 char			*ft_get_signs_before_dec(char *str);
+char			*ft_sign_after_dec(char *str, void *content);
 
 char    		*conv_nothing(char *str, void *content);
 char    		*conv_dec(char *str, void *content);

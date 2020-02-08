@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 08:55:22 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/01/28 12:10:03 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/06 12:08:05 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ char	*ft_get_signs_before_dec(char *str)
 	while (str[i] != '%' && str[i] != '-' &&
 		str[i] != '+' && str[i] != ' ' &&
 		str[i] != '.' && i > 0)
-		i--;
+		i++;
+	i--;
+	if (str[i] == ' ')
+		return (" ");
 	if (str[i] == '%' && str[i + 1] == '0')
 		return ("0");
 	if (str[i] == '+' && str[i + 1] == '0')

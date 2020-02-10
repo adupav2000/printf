@@ -6,22 +6,49 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 17:06:30 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/08 17:52:30 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/08 21:38:21 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_handle_stars(char *str, va_list args)
+#include "../libftprintf.h"
+
+char *ft_handle_stars(char *str, va_list args)
 {
-	char			*ret_val;
+	char			ret_val[200000];
+	char			*true_ret_val;
+	unsigned int	i_ret_val;
 	unsigned int	i;
 
-	ret_val = 0;
 	i = 0;
-	va_start(va, str);
 	while (str[i])
 	{
-		
+		if (str[i] == '%')
+		{
+			while (!ft_isprintf_flag(str[i]))
+			{
+				if (str[i] == '*')
+				{
+					i++;
+					ret_val[i_ret_val] = '\0';
+					ft_strlcat(ret_val, ft_itoa(va_arg(args, int)), 12);
+					i_ret_val = ft_strlen(ret_val);
+				}
+				ret_val[i_ret_val++] = str[i++];
+			}
+			ret_val[i_ret_val++] = str[i++];
+			(void)va_arg(args, int);
+		}
+		else if (str[i])
+		{
+			ret_val[i_ret_val++] = str[i++];
+			ret_val[i_ret_val] = '\0';
+		}
 	}
-	va_end(va);
-	return ret_val;
+	va_end(args);
+	ret_val[i_ret_val] = '\0';
+	true_ret_val = 0;
+	if (!(true_ret_val = ft_strnew(ft_strlen(ret_val))))
+		return (0);
+	ft_strlcpy(true_ret_val, ret_val, ft_strlen(ret_val));
+	return (true_ret_val);
 }

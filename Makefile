@@ -31,7 +31,7 @@ SRC = fonctions/conv_nothing.c fonctions/ft_exp.c fonctions/ft_strncpy.c fonctio
 		fonctions/ft_shift_char_in_string.c fonctions/ft_isprintf_flag.c\
 		fonctions/ft_printfflag_has_max.c fonctions/ft_printfflag_has_min.c\
 		fonctions/ft_get_signs_before_dec.c fonctions/ft_abs.c\
-		fonctions/ft_sign_after_dec.c
+		fonctions/ft_sign_after_dec.c fonctions/ft_handle_stars.c
 
 OBJ = conv_nothing.o ft_exp.o ft_strncpy.o conv_string.o\
 		ft_get_lim.o ft_get_int_len.o conv_char.o conv_unsigned_dec.o\
@@ -62,7 +62,7 @@ OBJ = conv_nothing.o ft_exp.o ft_strncpy.o conv_string.o\
 		ft_get_len_conv_dec.o ft_get_lim_string_min.o ft_get_lim_string_max.o\
 		ft_shift_char_in_string.o ft_isprintf_flag.o\
 		ft_printfflag_has_max.o ft_printfflag_has_min.o ft_abs.o\
-		ft_sign_after_dec.o ft_get_signs_before_dec.o
+		ft_sign_after_dec.o ft_get_signs_before_dec.o ft_handle_stars.o
 
 # OBJ = $(subst .c,.o,$(SRC))
 

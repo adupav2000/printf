@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_jump_to_next_arg.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 11:53:22 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/10 19:34:24 by adu-pavi         ###   ########.fr       */
+/*   Created: 2020/02/08 19:50:47 by adu-pavi          #+#    #+#             */
+/*   Updated: 2020/02/08 21:39:30 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-char	*ft_strdup(const char *s1)
+int ft_jump_to_next_arg(char *str, va_list arg)
 {
-	char	*to_allocate;
-	int		i;
+	int ret_val;
+	int i;
 
-	i = ft_strlen(s1);
-	if (!(to_allocate = ft_strnew(i)))
-		return (0);
-	ft_memcpy(to_allocate, s1, i);
-	to_allocate[ft_strlen(s1)] = '\0';
-	return (to_allocate);
+	ret_val = 0;
+	i = 0;
+	while (str[i] && str[i] != '%')
+		i++;
+	while (str[i] && !ft_isprintf_flag(str[i]))
+		if (str[i++] == '*')
+			(void)va_arg(arg, int);
+	while (str[i] && str[i] != '%')
+		i++;
+	return (i);
 }

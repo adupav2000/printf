@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/10 20:50:08 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:40:04 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,7 @@
   #include "ft_jump_to_next_arg.c"
 
 int main()
-{
-	int		j = -12;
-
-  ft_printf("ft_printf >%-*d<\n", 555, -412);
-  printf("___printf >%-*d<\n", 555, -412);
+{ 
+  ft_printf("ft_printf >%*d<\n", 20, -412);
+  printf("___printf >%*d<\n", 20, -412);
 }

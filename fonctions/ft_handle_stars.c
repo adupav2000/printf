@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 17:06:30 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/08 21:38:21 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/11 11:03:11 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char *ft_handle_stars(char *str, va_list args)
 					ret_val[i_ret_val] = '\0';
 					ft_strlcat(ret_val, ft_itoa(va_arg(args, int)), 12);
 					i_ret_val = ft_strlen(ret_val);
+					printf("-%c[ire-te]-", ret_val[i_ret_val - 1]);
 				}
 				ret_val[i_ret_val++] = str[i++];
 			}
@@ -39,16 +40,13 @@ char *ft_handle_stars(char *str, va_list args)
 			(void)va_arg(args, int);
 		}
 		else if (str[i])
-		{
 			ret_val[i_ret_val++] = str[i++];
-			ret_val[i_ret_val] = '\0';
-		}
 	}
-	va_end(args);
 	ret_val[i_ret_val] = '\0';
+	va_end(args);
 	true_ret_val = 0;
 	if (!(true_ret_val = ft_strnew(ft_strlen(ret_val))))
 		return (0);
-	ft_strlcpy(true_ret_val, ret_val, ft_strlen(ret_val));
+	ft_strlcpy(true_ret_val, ret_val, ft_strlen(ret_val) + 1);
 	return (true_ret_val);
 }

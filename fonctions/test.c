@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/11 20:20:23 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/12 12:42:18 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,18 @@
   #include "ft_sign_after_dec.c"
   #include "ft_handle_stars.c"
   #include "ft_jump_to_next_arg.c"
+  #include "ft_get_lim_max_str.c"
+  #include "ft_get_lim_min_str.c"
 
 int main()
 {
-  ft_printf("ft_printf >%20.412d<\n", 122);
-  printf("___printf >%*.*d<\n", 20, 412, 122);
+  printf("%d\n", 412);
+  printf("%13.-32d\n", 412);
+  printf("%13.0d\n", 412);
+  return (0);
 }
+/*
+  is min or max ppositive
+  is min or max bigger than len
+
+*/

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 19:25:01 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/08 21:38:43 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/12 11:11:46 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int				ft_abs(int num);
 int				ft_isprintf_flag(char to_check);
 char			*ft_handle_stars(char *str, va_list args);
 int				ft_jump_to_next_arg(char *str, va_list arg);
+char			*ft_get_lim_max_str(char *str);
+char			*ft_get_lim_min_str(char *str);
 
 int				ft_get_lim_string_max(char *str);
 int				ft_get_lim_string_min(char *str);

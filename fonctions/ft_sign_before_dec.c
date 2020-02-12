@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:15:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/11 21:00:52 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/12 12:07:22 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,30 @@
 
 char	*ft_sign_before_dec(char *str, void *content)
 {
-	if (ft_printfflag_has_max(str))
-	{
-		// get the str value of it
-		// if "-" : ignore
-		// else : 
-		// 		get the number	
-	}
-	if (ft_printfflag_has_min(str))
-	{
-		// get the str value of it
-		// if "-" : ignore
-		// else : 
-		// 		get the number	
-	}
+	// char	*str_min_max[2];
+	// int		int_min_max[2];
+
+	// if (ft_printfflag_has_max(str))
+	// {
+	// 	str_min_max[0] = ft_get_lim_max_str(str);
+	// 	int_min_max[0] = ft_itoa(str_min_max[0]);
+	// 	if (int_min_max[0] > 0)
+	// 	{
+	// 		if ((int)content < 0)
+	// 			// ft_sign_before_dec_meth_1(); 
+	// 	}
+	// }
+	// if (ft_printfflag_has_min(str))
+	// {
+	// 	str_min_max[1] = ft_get_lim_min_str(str);
+	// 	int_min_max[1] = ft_itoa(str_min_max[1]);
+	// 	if (int_min_max[1] > 0)
+	// 	{
+	// 		if ((int)content < 0)
+	// 			// ft_sign_before_dec_meth_1();
+	// 	}
+	// }
+	return (0);
 }
 
 char *old_sign_before_dec(char *str, void *content)

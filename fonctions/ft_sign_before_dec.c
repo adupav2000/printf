@@ -6,13 +6,31 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:15:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/11 11:01:02 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/11 21:00:52 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
 char	*ft_sign_before_dec(char *str, void *content)
+{
+	if (ft_printfflag_has_max(str))
+	{
+		// get the str value of it
+		// if "-" : ignore
+		// else : 
+		// 		get the number	
+	}
+	if (ft_printfflag_has_min(str))
+	{
+		// get the str value of it
+		// if "-" : ignore
+		// else : 
+		// 		get the number	
+	}
+}
+
+char *old_sign_before_dec(char *str, void *content)
 {
 	char			*ret_val;
 	unsigned int	i;

@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/15 13:13:57 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/15 18:40:45 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,12 @@
 
 int main()
 {
-  ft_printf("ft_printf = %20.15d\n", 412);
-  printf("___printf = %20.15d\n", -412);
-  printf("%.15d\n", -412);
-  printf("%15d\n", 412);
+  int a;
+  a = 0;
+  printf("___printf = %2.-11d\n", 412);
+  ft_printf("ft_printf = %2.-11d\n", 412);
+  // printf("%.15d\n", -412);
+  // printf("%15d\n", 412);
   return (0);
 }
 /*

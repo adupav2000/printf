@@ -20,13 +20,9 @@ char	*ft_get_lim_max_str(char *str)
 
 	i = 0;
 	i_ret_val = 0;
-	while (!(ft_isprintf_flag(str[i])) && str[i] != '.' && str[i] != '\0')
-	{
+	while (!(ft_isprintf_flag(str[i])) && str[i] != '\0')
 		i++;
-	}
-	while (!ft_isprintf_flag(str[i + i_ret_val]) && str[i + i_ret_val] != '\0')
-		i_ret_val++;
-	ret_val = ft_strnew(i_ret_val + 1);
-	ft_strlcat(ret_val, &str[i], i_ret_val);
-	return (ret_val);
+	while (str[i] != '\0' && str[i] != '%' && str[i] != '.')
+		i--;
+	return (&str[i]);
 }

@@ -12,45 +12,134 @@
 
 #include "../libftprintf.h"
 
+char	*ft_sign_after_dec_just_min(int min, int len, int complement)
+{
+	char	*ret_val;
+	int		i_ret_val;
+	int		i;
+
+	i = 0;
+	if (min <= 0 || (min < len && complement == 0))
+		return (ft_strnew(0));
+	if (complement == 0)
+		i_ret_val = min - len + 1;
+	else if (complement == 1)
+		i_ret_val = min;
+	ret_val = ft_strnew(min - len + 1);
+	while (i <= i_ret_val)
+		ret_val[i++] = ' ';
+	return (ret_val);
+}
+
+char	*ft_sign_after_dec_just_max(int max, int len, char *str, void *content)
+{
+	char	*ret_val;
+
+	if (max < len)
+		return (ft_strnew(0));
+	else
+	{
+		ret_val = ft_strnew(max - len);
+		printf("%s\n", ft_get_lim_max_str(str));
+		if (str[1] == '.' || (str[1] == '0' && !ft_printfflag_has_min(str)) ||
+			!ft_strncmp("0", ft_get_lim_max_str(str), 1)
+			|| ft_printfflag_has_min(str))
+			ft_memset(ret_val, '0', (max - len));
+		else
+			ft_memset(ret_val, ' ', (max - len));
+		return (ret_val);
+	}
+	return (0);
+}
+
+char	*handle_options_positive_after(int min, int max, char *str, void *content)
+{
+	char	*tmp;
+	int		len;
+
+	len = ft_get_int_len((int)content);
+	if (min < len && max < len)
+		return (ft_strnew(0));
+	else if (min <= max)
+	{
+		if (str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 1))
+			tmp = ft_strnew(max + 2);
+		ft_strlcat(tmp, ft_sign_after_dec_just_max(max, len, str, content),
+			max + 3);
+		return (tmp);
+	}
+	else if (min > max)
+	{
+		tmp = ft_strnew(min + 1);
+		ft_strlcat(tmp, ft_sign_after_dec_just_min((min - max), len, 1),
+			(min - max + 1));
+		ft_strlcat(tmp, ft_sign_after_dec_just_max(max, len, str, content),
+			(min + 1));
+		return (tmp);
+	}
+	return (0);
+}
+
+char	*handle_options_negativ_after(int min, int max, char *str, void *content)
+{
+	char	*tmp;
+	int		len;
+
+	len = ft_get_int_len((int)content);
+	if (min < len && max < len)
+	{
+		tmp = ft_strnew(1);
+		tmp[0] = '-';
+		return (tmp);
+	}
+	else if (min <= max)
+	{
+		(void)ft_get_lim_max_str(str);
+		if (str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 1))
+			tmp = ft_strnew(max + 2);
+		tmp[0] = '-';
+		ft_strlcat(&tmp[1], ft_sign_after_dec_just_max((max + 1), len, str,
+			content), max + 3);
+		return (tmp);
+	}
+	else
+	{
+		tmp = ft_strnew(min - len + 1);
+		ft_strlcat(tmp, ft_sign_after_dec_just_min((min - max), len, 1),
+			(min - max + 1));
+		if (str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 2) ||
+			ft_printfflag_has_min(str))
+			tmp[ft_strlen(tmp)] = '-';
+		ft_strlcat(tmp, ft_sign_after_dec_just_max(max, len, str, content),
+			(max + 1));
+		if (!(str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 2) ||
+			ft_printfflag_has_min(str)))
+			tmp[ft_strlen(tmp)] = '-';
+		return (tmp);
+	}
+	return (0);
+}
+
 char	*ft_sign_after_dec(char *str, void *content)
 {
-	char			*ret_val;
-	unsigned int	i;
-	int				i_ret_val;
-	int				limit;
-	int				difference;
+	int min;
+	int max;
+	int len;
 
-	ret_val = 0;
-	i_ret_val = 0;
-	i = 0;
-	while (!ft_isprintf_flag(str[i + 1]) && str[i + 1] != 0)
-		i++;
-	while (ft_isdigit(str[i]))
-		i--;
-	difference = ft_abs(ft_atoi(&str[i + 1])) - ft_get_int_len((int)content);
-	limit = ft_get_len_conv_dec(str, content);
-	if (!(ret_val = malloc(limit + difference + 1)))
-		return (0);
+	len = ft_get_int_len((int)content);
+	if (ft_printfflag_has_min(str))
+		min = ft_get_lim_string_min(str);
+	if (!ft_printfflag_has_min(str) || min < 0)
+		min = 0;
+	if (ft_printfflag_has_max(str))
+		max = ft_get_lim_string_max(str);
+	if (!ft_printfflag_has_max(str) || max < 0)
+		max = 0;
+	if ((int)content >= 0)
+		return (handle_options_positive_after(min, max, len, str));
 	if ((int)content < 0)
-	{
-		if (!ft_strncmp(" -", ft_get_signs_before_dec(str), 10)
-		|| !ft_strncmp("-", ft_get_signs_before_dec(str), 10)
-		|| !ft_strncmp("-0", ft_get_signs_before_dec(str), 10))
-			while (i_ret_val <= difference)
-				ret_val[i_ret_val++] = ' ';
-	}
-	else if ((int)content >= 0)
-	{
-		if (!ft_strncmp(" -", ft_get_signs_before_dec(str), 10))
-			while (i_ret_val <= difference - 1)
-				ret_val[i_ret_val] = ' ';
-		if (!ft_strncmp("-", ft_get_signs_before_dec(str), 10)
-		|| !ft_strncmp("-0", ft_get_signs_before_dec(str), 10))
-			while (i_ret_val <= difference)
-				ret_val[i_ret_val] = ' ';
-	}
-	ret_val[i_ret_val] = '\0';
-	return (ret_val);
+		return (handle_options_negativ_after(min, max, len, str));
+	return (0);
 }
 
  /*

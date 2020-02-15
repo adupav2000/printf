@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:04:43 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/15 09:45:53 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/15 11:19:43 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char *conv_dec(char *str, void *content)
 	safe_stock = (int)content;
 	diviser = 1000000000;
 	tmp_count = 0;
-	if (ft_printfflag_has_max(str) && ft_get_lim_string_max(str) == 0  
+	if (ft_printfflag_has_max(str) && ft_get_lim_string_max(str) == 0
 		&& (int)content == 0)
 			return (ft_strnew(0));
 	if (ft_sign_before_dec(str, content) != '\0')

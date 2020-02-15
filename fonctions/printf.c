@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:00 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/11 20:15:04 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/15 09:51:30 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int ft_printf(const char *str, ...)
     unsigned int    tmp_count;
     unsigned int    str_count;
     char            *changed_str;
-    
+
     define_conv_ptr();
     tmp_count = 0;
     str_count = 0;

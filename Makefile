@@ -63,7 +63,7 @@ OBJ = conv_nothing.o ft_exp.o ft_strncpy.o conv_string.o\
 		ft_get_len_conv_dec.o ft_get_lim_string_min.o ft_get_lim_string_max.o\
 		ft_shift_char_in_string.o ft_isprintf_flag.o\
 		ft_printfflag_has_max.o ft_printfflag_has_min.o ft_abs.o\
-		ft_sign_after_dec.o ft_get_signs_before_dec.o ft_handle_stars.o
+		ft_sign_after_dec.o ft_get_signs_before_dec.o ft_handle_stars.o\
 		ft_get_lim_max_str.o ft_get_lim_min_str.o
 
 # OBJ = $(subst .c,.o,$(SRC))

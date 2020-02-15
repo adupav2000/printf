@@ -6,37 +6,170 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:15:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/12 12:07:22 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/15 09:44:04 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
+char *ft_sign_before_dec_just_min(int min, int len)
+{
+	char	*ret_val;
+	int		i_ret_val;
+
+	if (min < 0 || min < len)
+		return (ft_strnew(0));
+	i_ret_val = min - len;
+	ret_val = 0;
+	if (i_ret_val > 0)
+	{
+		ret_val[i_ret_val + 1] = '\0';
+		while (i_ret_val - 1 > 0)
+			ret_val[i_ret_val--] = ' ';	
+	}
+	return (ft_strdup((const char *)ret_val));
+}
+
+char *ft_sign_before_dec_just_max(int max, int len, char *str, void *content)
+{
+	char	*ret_val;
+
+	if (max < len)
+		return (ft_strnew(0));
+	else
+	{
+		ret_val = ft_strnew(max - len);
+		if (str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 1) || 
+			ft_printfflag_has_min(str))
+			ft_memset(ret_val, '0', (max - len));
+		else
+			ft_memset(ret_val, ' ', (max - len));
+		if (ft_strncmp("", ft_get_lim_max_str(str), 1))
+		return (ret_val);
+	}
+	return (0);
+}
+
+char *ft_sign_before_dec_min_and_max(char *str, void *content)
+{
+	int		max;
+	int		min;
+	int		len;
+	char	*ret_val;
+
+	max = ft_atoi(ft_get_lim_max_str(str));
+	min = ft_atoi(ft_get_lim_min_str(str));
+	len = ft_get_int_len((int)content);
+	if (min < len && max < len)
+		return (ft_strnew(0));
+	if (min > len && max < len)
+	{
+		ret_val = ft_strnew(min - len);
+		ft_memset(ret_val, ' ', min - len);
+	}
+	else if (max > len && min < len)
+		return (ft_sign_before_dec_just_max(max, len, str, content));
+	else
+	{
+		if (max > min)
+			return (ft_sign_before_dec_just_max(max, len, str, content));
+		else
+		{
+			ret_val = ft_strnew(min);
+			ft_memset(ret_val, ' ', (min - max));
+			ft_strlcat(ret_val, ft_sign_before_dec_just_max(max, len, str, 
+			content), max);
+			return (ret_val);
+		}
+	}
+	return (0);
+}
+
+char	*handle_options_positive(int min, int max, int len, char *str, 
+	void *content)
+{
+	char *tmp;
+
+	if (min < len && max < len)
+		return (ft_strnew(0));
+	else if (min <= max)
+	{
+		if (str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 1))
+			tmp = ft_strnew(max + 2);
+			tmp[0] = '-';
+			ft_strlcat(tmp, ft_sign_before_dec_just_max(max, len, str, content),
+				max + 3);
+			return (tmp);
+	}
+	else if (min > max)
+	{
+		tmp = ft_strnew(min - len);
+		ft_strlcat(tmp, ft_sign_before_dec_just_min((min - max), len), 
+			(min - max + 1));
+		ft_strlcat(tmp, ft_sign_before_dec_just_max(max, len, str, content), 
+			(max + 1));
+		return (tmp);
+	}
+	return (0);
+}
+
+char	*handle_options_negativ(int min, int max, int len, char *str, 
+	void *content)
+{
+	char *tmp;
+
+	if (min < len && max < len)
+	{
+		tmp = ft_strnew(1);
+		tmp[0] = '-';
+		return (tmp);
+	}
+	else if (min <= max)
+	{
+		tmp = ft_strnew(max + 1);
+		tmp[0] = '-';
+		ft_strlcat(tmp, ft_sign_before_dec_just_max(max, len, str, content), max + 1);
+		return (tmp);
+	}
+	else if (min > max)
+	{
+		tmp = ft_strnew(min - len);
+		ft_strlcat(tmp, ft_sign_before_dec_just_min((min - max), len),
+			(min - max + 1));
+		if (str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 1) ||
+			ft_printfflag_has_min(str))
+			tmp[ft_strlen(tmp)] = '-';
+		ft_strlcat(tmp, ft_sign_before_dec_just_max(max, len, str, content),
+			(max + 1));
+		if (!(str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 1) ||
+			ft_printfflag_has_min(str)))
+			tmp[ft_strlen(tmp)] = '-';
+		return (tmp);
+	}
+	return (0);
+}
+
 char	*ft_sign_before_dec(char *str, void *content)
 {
-	// char	*str_min_max[2];
-	// int		int_min_max[2];
+	int min;
+	int max;
+	int len;
 
-	// if (ft_printfflag_has_max(str))
-	// {
-	// 	str_min_max[0] = ft_get_lim_max_str(str);
-	// 	int_min_max[0] = ft_itoa(str_min_max[0]);
-	// 	if (int_min_max[0] > 0)
-	// 	{
-	// 		if ((int)content < 0)
-	// 			// ft_sign_before_dec_meth_1(); 
-	// 	}
-	// }
-	// if (ft_printfflag_has_min(str))
-	// {
-	// 	str_min_max[1] = ft_get_lim_min_str(str);
-	// 	int_min_max[1] = ft_itoa(str_min_max[1]);
-	// 	if (int_min_max[1] > 0)
-	// 	{
-	// 		if ((int)content < 0)
-	// 			// ft_sign_before_dec_meth_1();
-	// 	}
-	// }
+	printf ("hello\n");
+	len = ft_get_int_len((int)content);
+	if (ft_printfflag_has_min(str))
+		min = ft_get_lim_string_min(str);
+	if (!ft_printfflag_has_min(str) || min < 0)
+		min = 0;
+	printf("max = %d, min = %d, len = %d, ft_get_lim_string_max(str) = %d\n", max, min, len, ft_get_lim_string_max(str));
+	if (ft_printfflag_has_max(str))
+		max = ft_get_lim_string_max(str);
+	if (!ft_printfflag_has_max(str) || max < 0)
+		max = 0;
+	if ((int)content >= 0)
+		return (handle_options_positive(min, max, len, str, content));
+	if ((int)content < 0)
+		return (handle_options_negativ(min, max, len, str, content));
 	return (0);
 }
 

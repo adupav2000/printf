@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/12 12:42:18 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/15 09:54:33 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,13 +113,14 @@
 
 int main()
 {
-  printf("%d\n", 412);
-  printf("%13.-32d\n", 412);
-  printf("%13.0d\n", 412);
+  ft_printf("ft_printf = %.015d\n", 412);
+  printf("___printf = %15d\n", -412);
+  printf("%.15d\n", -412);
+  printf("%15d\n", 412);
+
   return (0);
 }
 /*
   is min or max ppositive
   is min or max bigger than len
-
 */

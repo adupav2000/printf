@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:04:43 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/15 11:19:43 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:33:06 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char *conv_dec(char *str, void *content)
 	int			diviser;
 	char		tmp[500000];
 	int			tmp_count;
-	char		*ret_val;
 	
 	safe_stock = (int)content;
+	ft_bzero(tmp, 500000);
 	diviser = 1000000000;
 	tmp_count = 0;
 	if (ft_printfflag_has_max(str) && ft_get_lim_string_max(str) == 0
@@ -41,12 +41,7 @@ char *conv_dec(char *str, void *content)
 		safe_stock -= (safe_stock / diviser) * diviser;
 		diviser = diviser / 10;
 	}
-	tmp_count = ft_strlen(tmp);
 	ft_strlcat(&tmp[tmp_count], ft_sign_after_dec(str, content),
 		ft_strlen(ft_sign_after_dec(str, content)));
-	if (!(ret_val = (char *)malloc(sizeof(char) *
-		ft_strlen(tmp))))
-		return (0);
-	ft_strlcat(ret_val, tmp, ft_strlen(tmp) + 1);
-    return (ret_val);
+    return (ft_strdup(tmp));
 }

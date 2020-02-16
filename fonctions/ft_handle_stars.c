@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 17:06:30 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/11 20:11:17 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:21:55 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char *ft_handle_stars(char *str, va_list args)
 	unsigned int	i;
 
 	i = 0;
+	i_ret_val = 0;
+	ft_bzero(ret_val, 20000);
 	while (str[i] && i < ft_strlen(str))
 	{
 		if (str[i] == '%')

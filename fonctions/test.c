@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/16 18:14:27 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:31:56 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,11 +115,18 @@ int main()
 {
   int a;
   a = 0;
-  ft_printf("1Hello -- ");
-  ft_printf("2Hello -- ");
-  ft_printf("3Hello -- ");
-  ft_printf("4Hello -- ");
-  ft_printf("5Hello -- \n");
+  ft_printf("1_printf = d = %-11.1d\n", -412);
+  printf("1__printf = d = %-11.1d\n", -412);
+  // ft_printf("ft_printf = d = %d\n", 412);
+  // printf("--_printf = d = %d\n", 412);
+  // ft_printf("ft_printf = d = %1.5d\n", 412);
+  // printf("--_printf = d = %1.5d\n", 412);
+  // ft_printf("ft_printf = d = %1.5d\n", 412);
+  // printf("--_printf = d = %1.5d\n", 412);
+  // ft_printf("ft_printf = d = %1.5d\n", 412);
+  // printf("--_printf = d = %1.5d\n", 412);
+  // ft_printf("ft_printf = d = %d\n", -412);
+  // printf("--_printf = d = %d\n", -412);
   return (0);
 }
 /*

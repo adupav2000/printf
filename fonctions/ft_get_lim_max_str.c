@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 17:02:03 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/15 12:46:51 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/16 11:23:24 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_get_lim_max_str(char *str)
 {
 	int		i;
-	char	*ret_val;
 	int		i_ret_val;
 
 	i = 0;

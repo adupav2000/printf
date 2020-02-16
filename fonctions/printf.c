@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:14:00 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/16 17:07:15 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:15:52 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int ft_printf(const char *str, ...)
     }
     va_end(va[0]);
     va_end(va[1]);
+    free(changed_str);
     ft_putstr(tmp);
     return (ft_strlen(tmp));
 }

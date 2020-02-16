@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/16 11:27:46 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:03:08 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,14 +115,14 @@ int main()
 {
   int a;
   a = 0;
-  ft_printf("ft_printf = d = %-11.5d\n", -412);
-  printf("___printf = d = %-11.5d\n", -412);
-  // ft_printf("___printf = d = %1.5d\n", 412);
-  // ft_printf("___printf = d = %1.5d\n", 412);
-  // ft_printf("___printf = d = %1.5d\n", 412);
-  // ft_printf("___printf = d = %1.5d\n", 412);
+  ft_printf("ft_printf = d = %-11.1d\n", -412);
+  printf("___printf = d = %-11.1d\n", -412);
+  ft_printf("___printf = d = %1.5d\n", 412);
+  ft_printf("___printf = d = %1.5d\n", 412);
+  ft_printf("___printf = d = %1.5d\n", 412);
+  ft_printf("___printf = d = %1.5d\n", 412);
   
-  // ft_printf("___printf = d = %d\n", -412);
+  ft_printf("___printf = d = %d\n", -412);
 
 
 

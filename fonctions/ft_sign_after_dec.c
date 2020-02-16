@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 12:16:17 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/16 11:29:08 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:02:57 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,22 @@ int ret_number_of_spaces_after_dec(int min, int max, void *content)
 		return (0);
 	if (max < 0)
 		return (ret_val + ft_abs(max) - len);
-	len = (len + ret_val) < max ? max : len;
 	if (min < 0 && ft_abs(min) > len)
 	{
 		if (len < max)
-			if ((max + ft_abs(ret_val)) < min)
-				return (min - (max + ft_abs(ret_val)));
+		{
+			if (max < ft_abs(min))
+				return (ft_abs(min) - (max));
+		}
 		if (len > max)
-			if (len < min)
-				return (min - len - ft_abs(ret_val));
+		{
+			if ((int)content < 0 && len < ft_abs(min))
+				return (ft_abs(min) - len + 1);
+			if (len < ft_abs(min))
+				return (ft_abs(min) - len);
+		}
 	}
 	return (0);
-
-	return (ret_val);
 }
 
 char	*ft_sign_after_dec(char *str, void *content)
@@ -55,7 +58,7 @@ char	*ft_sign_after_dec(char *str, void *content)
 		max = ft_get_lim_string_max(str);
 	if (!ft_printfflag_has_max(str))
 		max = 0;
-	ret_val = ft_strnew(ret_number_of_spaces_after_dec(min, max, content));
+	ret_val = ft_strnew(ret_number_of_spaces_after_dec(min, max, content) + 1);
 	ft_memset(ret_val, ' ', ret_number_of_spaces_after_dec(min, max, content));
 	return (ret_val);
 }

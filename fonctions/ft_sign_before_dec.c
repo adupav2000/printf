@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:15:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/16 11:21:20 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/18 10:37:40 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,10 @@ char	*ft_sign_before_dec(char *str, void *content)
 	len = ft_get_int_len((int)content);
 	if (ft_printfflag_has_min(str))
 		min = ft_get_lim_string_min(str);
-	if (!ft_printfflag_has_min(str) || min < 0)
-		min = 0;
 	if (ft_printfflag_has_max(str))
 		max = ft_get_lim_string_max(str);
+	if (!ft_printfflag_has_min(str) || min < 0 || max < 0)
+		min = 0;
 	if (!ft_printfflag_has_max(str) || max < 0)
 		max = 0;
 	if ((int)content >= 0)

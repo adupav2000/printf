@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:23:45 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/16 18:31:56 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/19 12:52:37 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,20 @@
   #include "ft_jump_to_next_arg.c"
   #include "ft_get_lim_max_str.c"
   #include "ft_get_lim_min_str.c"
+  #include "ft_get_hex_len.c"
+  #include "ft_sign_after_hex.c"
+  #include "get_unsigned_len.c"
+  #include "ft_sign_before_unsigned.c"
+
 
 int main()
 {
   int a;
-  a = 0;
-  ft_printf("1_printf = d = %-11.1d\n", -412);
-  printf("1__printf = d = %-11.1d\n", -412);
+  a =7483648;
+  ft_printf("ft_printf = d = %-7d\n", -71);
+  printf("1__printf = d = %-7d\n", -71);
+  printf("ft prinf %d\n", ft_printf("%-7d\n", -71));
+  printf("__ prinf %d\n", printf("%-7d\n", -71));
   // ft_printf("ft_printf = d = %d\n", 412);
   // printf("--_printf = d = %d\n", 412);
   // ft_printf("ft_printf = d = %1.5d\n", 412);

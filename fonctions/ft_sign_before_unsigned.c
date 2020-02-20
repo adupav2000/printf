@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_maj_hex.c                                     :+:      :+:    :+:   */
+/*   ft_sign_before_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/29 20:09:11 by adu-pavi          #+#    #+#             */
-/*   Updated: 2020/02/18 10:56:51 by adu-pavi         ###   ########.fr       */
+/*   Created: 2019/12/28 18:15:45 by adu-pavi          #+#    #+#             */
+/*   Updated: 2020/02/18 10:37:40 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-char	*ft_sign_before_hex_just_min_maj(int min, int len, int complement)
+char	*ft_sign_before_dec_just_min_un(int min, int len, int complement)
 {
 	char	*ret_val;
 	int		i_ret_val;
@@ -32,7 +32,7 @@ char	*ft_sign_before_hex_just_min_maj(int min, int len, int complement)
 	return (ret_val);
 }
 
-char	*ft_sign_before_hex_just_max_maj(int max, int len, char *str)
+char	*ft_sign_before_dec_just_max_un(int max, int len, char *str)
 {
 	char	*ret_val;
 
@@ -52,12 +52,12 @@ char	*ft_sign_before_hex_just_max_maj(int max, int len, char *str)
 	return (0);
 }
 
-char	*handle_options_positive_hex_maj(int min, int max, char *str, void *content)
+char	*handle_options_positive_un(int min, int max, char *str, void *content)
 {
 	char	*tmp;
 	int		len;
 
-	len = ft_get_hex_len(content);
+	len = ft_get_unsigned_len((unsigned int)content);
 	tmp = 0;
 	if (min < len && max < len)
 		return (ft_strnew(0));
@@ -65,44 +65,37 @@ char	*handle_options_positive_hex_maj(int min, int max, char *str, void *content
 	{
 		if (str[1] == '.' || ft_strncmp("0", ft_get_lim_max_str(str), 1))
 			tmp = ft_strnew(max + 2);
-		ft_strlcat(tmp, ft_sign_before_hex_just_max_maj(max, len, str),
+		ft_strlcat(tmp, ft_sign_before_dec_just_max_un(max, len, str),
 			max + 3);
 		return (tmp);
 	}
 	else if (min > max)
 	{
 		tmp = ft_strnew(min + 1);
-		ft_strlcat(tmp, ft_sign_before_hex_just_min_maj((min - max), len, 1),
+		ft_strlcat(tmp, ft_sign_before_dec_just_min_un((min - max), len, 0),
 			(min - max + 1));
-		ft_strlcat(tmp, ft_sign_before_hex_just_max_maj(max, len, str),
+		ft_strlcat(tmp, ft_sign_before_dec_just_max_un(max, len, str),
 			(min + 1));
 		return (tmp);
 	}
 	return (0);
 }
 
-char *conv_maj_hex(char *str, void *content)
+char	*ft_sign_before_unsigned(char *str, void *content)
 {
-    char    tmp[5000];
-    int     min;
-    int     max;
-    int     len;
+	int min;
+	int max;
+	int len;
 
-    ft_bzero(tmp, 5000);
-    len = ft_get_hex_len(content);
+	len = ft_get_unsigned_len((unsigned int)content);
 	if (ft_printfflag_has_min(str))
 		min = ft_get_lim_string_min(str);
 	if (ft_printfflag_has_max(str))
-		max = ft_get_lim_string_max(str);
-	if (!ft_printfflag_has_min(str) || min < 0 || max < 0)
+		max = ft_get_lim_string_max(str) + 2;
+	if (!ft_printfflag_has_min(str) || min < 0 || (ft_printfflag_has_max(str)
+		&& max < 0))
 		min = 0;
 	if (!ft_printfflag_has_max(str) || max < 0)
 		max = 0;
-    ft_strlcat(tmp, handle_options_positive_hex_maj(min, max, str, content), (ft_strlen(
-        handle_options_positive_hex_maj(min, max, str, content)) + 1));
-    ft_strlcat(tmp, conv_from_base((unsigned int)content, "0123456789ABCDEF"), 
-        (ft_get_hex_len(content) + ft_strlen(tmp) + 1));
-    ft_strlcat(tmp, ft_sign_after_hex(str, content), (ft_strlen(ft_sign_after_hex(
-        str, content)) + ft_strlen(tmp) + 1));
-    return (ft_strdup(tmp));
+	return (handle_options_positive_un(min, max, str, content));
 }

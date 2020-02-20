@@ -6,7 +6,7 @@
 /*   By: adu-pavi <adu-pavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 20:05:48 by adu-pavi          #+#    #+#             */
-/*   Updated: 2019/12/30 12:46:03 by adu-pavi         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:45:06 by adu-pavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@ char *conv_unsigned_dec(char *str, void *content)
 {
     long long int	safe_stock;
 	int			        diviser;
-	char		        *tmp;
+	char		        tmp[50000];
 	int			        tmp_count;
 
-	(void)str;
 	safe_stock = (long long int)content;
     if (safe_stock < 0)
         safe_stock = 4294967295 + safe_stock + 1;
 	diviser = 1000000000; 
-	tmp_count = 0;
-	tmp = 0;
-	if (!(tmp = (char *)malloc(sizeof(int) * ft_get_int_len((int)content) + 1)))
-		return (0);
+	ft_bzero(tmp, 50000);
+	ft_strlcat(tmp, ft_sign_before_unsigned(str, content),
+		(ft_strlen(ft_sign_before_unsigned(str, content)) + 1));
+	tmp_count = ft_strlen(tmp);
 	while (!(safe_stock / diviser) && diviser != 1)
 		diviser = diviser / 10;
 	while (diviser != 0)
@@ -36,8 +35,7 @@ char *conv_unsigned_dec(char *str, void *content)
 		safe_stock -= (safe_stock / diviser) * diviser;
 		diviser = diviser / 10;
 	}
-	tmp[tmp_count] = '\0';
-	if ((int)ft_strlen(tmp) < ft_get_lim_string_min(str))
-		return (ft_shift_char_in_string(tmp, ft_get_lim_string_min(str)));
-    return (tmp);
+	ft_strlcat(tmp, ft_sign_after_dec(str, content), (ft_strlen(tmp)
+		+ ft_strlen(ft_sign_after_dec(str, content)) + 1));
+    return (ft_strdup(tmp));
 }
